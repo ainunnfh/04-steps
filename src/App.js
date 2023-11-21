@@ -17,6 +17,9 @@ export default function App() {
     if (step < 3) setStep(step + 1);
   }
 
+  const disabledStepsPrev = step <= 1 ? "#d9d9d9d9" : "#ffafcc";
+  const disabledStepsNext = step >= 3 ? "#d9d9d9d9" : "#ffafcc";
+
   return (
     <div className="steps">
       <div className="numbers">
@@ -29,13 +32,16 @@ export default function App() {
       </p>
       <div className="buttons">
         <button
-          style={{ backgroundColor: "#ffafcc", color: "white" }}
+          style={{
+            backgroundColor: `${disabledStepsPrev}`,
+            color: "white",
+          }}
           onClick={handlePrev}
         >
           Previous
         </button>
         <button
-          style={{ backgroundColor: "#ffafcc", color: "white" }}
+          style={{ backgroundColor: `${disabledStepsNext}`, color: "white" }}
           onClick={handleNext}
         >
           Next
